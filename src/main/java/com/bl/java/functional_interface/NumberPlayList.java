@@ -5,12 +5,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class NumberPlayList {
     public static void main(String[] args) {
 
         List<Integer> myNumberList = new ArrayList<>();
-        for (int i=0; i<=5;i++) myNumberList.add(i);
+        for (int i=1; i<=5;i++) myNumberList.add(i);
 
         //Method 1 : Traversing using Iterator
         Iterator<Integer> it = myNumberList.iterator();
@@ -52,6 +53,13 @@ public class NumberPlayList {
         Function<Integer,Double> toDoubleFunction = Integer :: doubleValue;
         myNumberList.forEach(n->{
             System.out.println("Mth6: forEach Lambda impl Value : "+ toDoubleFunction.apply(n));
+        });
+
+        //Meethod 7 : Implicit Lambda Function to check even
+        Predicate<Integer> isEvenFunction = n -> n%2 == 0;
+        myNumberList.forEach(n-> {
+            System.out.println("Mth7 : forEach value of: "+n+
+                    " check for Even: "+ isEvenFunction.test(n));
         });
     }
 }
