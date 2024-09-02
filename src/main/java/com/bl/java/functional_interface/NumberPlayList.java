@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class NumberPlayList {
     public static void main(String[] args) {
@@ -62,9 +63,15 @@ public class NumberPlayList {
                     " check for Even: "+ isEvenFunction.test(n));
         });
 
-        //Method 8 : Stream function
+        //Method 8 : Processing the Stream
         myNumberList.stream().forEach( n ->{
             System.out.println("Mth8: Stream forEach Value of: "+n);
         });
+
+        //Method 9: process the stream, apply operation on stream and store the result
+        List<Double> StreamList = myNumberList.stream()
+                                  .map(toDoubleFunction)
+                                  .toList();
+        System.out.println("Mth9: Printing Double List : "+ StreamList);
     }
 }
