@@ -70,7 +70,7 @@ public class NumberPlayList {
 
         //Method 9: process the stream, apply operation on stream and store the result
         List<Double> StreamList = myNumberList.stream()
-
+                                  .filter(isEvenFunction)
                                   .map(toDoubleFunction)
                                   .collect(Collectors.toList());
         System.out.println("Mth9: Printing Double List : "+ StreamList);
